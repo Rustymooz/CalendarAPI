@@ -1,0 +1,14 @@
+{
+  "name": "calendarapi",
+  "version": "1.0.0",
+  "description": "calendar to manage schedule",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rustymooz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
