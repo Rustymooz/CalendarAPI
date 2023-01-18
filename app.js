@@ -30,6 +30,7 @@ app.get('/', (req, res) => {
 // GETS
 app.get('/api/events/', cors(corsOptions), EventControllerAPI.getAllEvents);
 app.get('/api/events/:id', cors(corsOptions), EventControllerAPI.getEvent);
+app.get('/api/eventstype/:type', cors(corsOptions), EventControllerAPI.getEventByType);
 // POSTS
 app.post('/api/events', cors(corsOptions), EventControllerAPI.addEvent);
 

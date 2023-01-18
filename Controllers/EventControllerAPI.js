@@ -28,7 +28,7 @@ const getEvent = (req, res) => {
     if(!event) res.status(404).send('Course not found');
     res.send(event);
     */
-    const result = Event.find({id: req.params.id})
+    const result = Event.find({id: req.params.id}).sort({id: 1})
         .then((result) => {
             res.send(result);
         })
@@ -37,6 +37,16 @@ const getEvent = (req, res) => {
         })
     
     //res.send(req.params.id);
+}
+
+const getEventByType = (req, res) => {
+    const result = Event.find({type: req.params.type}).sort({id: 1})
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 }
 
 const addEvent = (req, res) => {
@@ -49,6 +59,7 @@ const addEvent = (req, res) => {
         return;
     }
     */
+
     const eventt = new Event(req.body);
     eventt.save()
         .then((result) => {
@@ -89,5 +100,6 @@ function validateEvent(event){
 module.exports = {
     getAllEvents,
     getEvent,
+    getEventByType,
     addEvent
 }

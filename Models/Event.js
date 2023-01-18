@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const eventSchema = new Schema({
     id: {
         type: Number,
-        required: true
+        required: true,
+        unique: true
     },
     name: {
         type: String,
@@ -17,22 +18,20 @@ const eventSchema = new Schema({
     description: {
         type: String,
         required: true
+    },
+    type: {
+        type: String,
+        required: true
+    },
+    startDate: {
+        type: Date,
+        required: true
+    },
+    endDate: {
+        type: Date,
+        required: true
     }
-    /*
-    startDate: [
-        {
-            hour: Number,
-            minute: Number
-        }
-    ],
-    date: [
-        {
-            day: Number,
-            month: Number,
-            year: Number
-        }
-    ]
-    */
+
 }, {timestamps: true})
 
 const Event = mongoose.model('Event', eventSchema);
